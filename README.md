@@ -41,4 +41,9 @@ six primitive data types in JavaScript: [tutorial link](https://www.javascripttu
 1. undefined: default value of uninitialized variables.
 2. null: never a default value; you can set something to null (e.g. to reset/ clear a variable). In JavaScript, the data type of null is an object.
 3. NaN: result of invalid calculations. it is not a type. It is of type number.
+```
+console.log(typeof undefined); // "undefined"
+console.log(typeof null); // "object"
+console.log(typeof NaN); // "number"
+```
 
