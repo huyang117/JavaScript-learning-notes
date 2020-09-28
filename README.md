@@ -36,7 +36,7 @@ let a = 3;
 alert(++a); // alert 4
 ```
 #### null, undefined, NaN
-six primitive data types in JavaScript: [tutorial link](https://www.javascripttutorial.net/javascript-data-types/#null)
+Six primitive data types in JavaScript: [tutorial link](https://www.javascripttutorial.net/javascript-data-types/#null)
 
 1. `undefined`: default value of uninitialized variables.
 2. `null`: never a default value; you can set something to null (e.g. to reset/ clear a variable). In JavaScript, the data type of null is an object.
