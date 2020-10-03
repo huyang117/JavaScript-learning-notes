@@ -74,4 +74,10 @@ if (val) {
 - if `val` is `null`/ `undefined`/ `NaN`
   - yields `false`
 
+### Statements & Expressions
+[MDN]
+[Stack Overflow discussion: difference between expressions and statements]
+>An expression is any valid unit of code that resolves to a value.
+Basically expressions can be used on the right side of an equal sign; statement (e.g. if statement) cannot.
+
 
