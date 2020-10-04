@@ -89,7 +89,7 @@ console.log(userName && 'Anna'); // userName is truthy, hence second (!) value i
 console.log(altName && 'Anna'); // altName is falsy, hence first value is returned => ''
 console.log(userName && ''); // userName is truthy, hence second value is returned => ''
 ```
-|| can be used in to assign default/ fallback values to variables
+`||` can be used in to assign default/ fallback values to variables
 ```
 const enteredValue = ''; // let's assume this is set based on some input provided by the user, therefore it might be an empty string
 const userName = enteredValue || 'PLACEHOLDER'; // will assign 'PLACEHOLDER' if enteredValue is an empty string
