@@ -64,11 +64,11 @@ if (val) {
 }
 ```
 - if `val` is number type
-  - 0 yields `false`
+  - +0, -0 or NaN yields `false`
   - positive or negative numbers yields `true`
 - if `val` is string type
   - empty string yields `false`
-  - any other non-empty string yields `true`
+  - any other non-empty string yields `true` (length >= 1)
 - if `val` is objects or arrays (arrays are technically objects in JavaScript)
   - `{}`, `[]` and any other objects or arrays yields `true`
 - if `val` is `null`/ `undefined`/ `NaN`
