@@ -47,7 +47,10 @@ console.log(typeof null); // "object"
 console.log(typeof NaN); // "number"
 ```
 #### Boolean Operators
-`==` and `!=` : check for value (in)equality
+`==` and `!=` : check for value (in)equality<br/>
+```
+console.log(undefined == null); // true
+```
 `===` and `!==` : check for value AND type (in)equality
 #### Operator Precedence
 Can refer to this article: [MDN - Operator Precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
