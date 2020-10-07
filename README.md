@@ -71,7 +71,7 @@ if (val) {
   - any other non-empty string yields `true` (length >= 1)
 - if `val` is objects or arrays (arrays are technically objects in JavaScript)
   - `{}`, `[]` and any other objects or arrays yields `true`
-- if `val` is `null`/ `undefined`/ `NaN`
+- if `val` is `null`/ `undefined`
   - yields `false`
 #### Logical Operators && and ||
 ```
