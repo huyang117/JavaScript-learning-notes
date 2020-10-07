@@ -73,6 +73,31 @@ if (val) {
   - `{}`, `[]` and any other objects or arrays yields `true`
 - if `val` is `null`/ `undefined`
   - yields `false`
+
+```
+function testTruthy(val) {
+  return val ? console.log('true') : console.log('false');
+}
+
+testTruthy(true); // true
+testTruthy(false); // false
+testTruthy(new Boolean(false)); // true (object is always true)
+
+testTruthy(''); // false
+testTruthy('Packt'); // true
+testTruthy(new String('')); // true (object is always true)
+
+testTruthy(1); // true
+testTruthy(-1); // true
+testTruthy(NaN); // false
+testTruthy(new Number(NaN)); // true (object is always true)
+
+testTruthy({}); // true (object is always true)
+var obj = { name: 'John' };
+testTruthy(obj); // true
+testTruthy(obj.name); // true
+testTruthy(obj.age); // false (age property does not exist)
+```
 #### Logical Operators && and ||
 ```
 const userName = 'Max';
