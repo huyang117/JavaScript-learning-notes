@@ -51,6 +51,11 @@ console.log(typeof NaN); // "number"
 ```
 console.log(undefined == null); // true
 ```
+```
+console.log('packt' == true); // false
+// First, convert the boolean value to number, packt == 1. Next, convert the string value to number. Since the string consists of
+// alphabetical characters, it returns NaN, so NaN == 1, which is false
+```
 `===` and `!==` : check for value AND type (in)equality
 #### Operator Precedence
 Can refer to this article: [MDN - Operator Precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
