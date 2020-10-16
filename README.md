@@ -129,9 +129,14 @@ const userName = enteredValue || 'PLACEHOLDER'; // will assign 'PLACEHOLDER' if 
 ```
 
 ### Statements & Expressions
-[MDN]
-[Stack Overflow discussion: difference between expressions and statements]
+[MDN - Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions)<br>
+[Stack Overflow discussion: difference between expressions and statements](https://stackoverflow.com/questions/12703214/javascript-difference-between-a-statement-and-an-expression)
 >An expression is any valid unit of code that resolves to a value.
 Basically expressions can be used on the right side of an equal sign; statement (e.g. if statement) cannot.
 
+### ES6 Related
+#### var VS let & const
+[Article from Free Code Camp - difference among var, let, const](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/#:~:text=var%20variables%20can%20be%20updated,const%20variables%20are%20not%20initialized.)
 
+#### Strict mode
+[MDN - Strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#Changes_in_strict_mode)
