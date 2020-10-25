@@ -123,3 +123,30 @@ const checkInput = (alertNoEmpty, ...strings) => {
 checkInput(() => alert('No empty string is detected'), 'a', 'b', 'c'); // will see alert
 checkInput(() => alert('No empty string is detected'), 'a', 'b', ''); // will not see alert
 ```
+
+### bind()
+[MDN - bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
+```
+const checkInput = (logNoEmpty, ...strings) => {
+  let hasEmptyString = false;
+  for (const str of strings) {
+    if (!str) {
+      hasEmptyString = true;
+      break;
+    }
+  }
+  if (!hasEmptyString) {
+    logNoEmpty('otherParams', 'anotherParam');
+  }
+}
+
+const callbackFunc = function(boundVal, ...otherParams) {
+  // bound value, in this case, 'BOUND-VALUE', will be passed in as the first parameter
+  console.log(boundVal + ', no empty string is passed in'); // "BOUND-VALUE, no empty string is passed in"
+  
+  // followed by other arguments are passed to bound function at the time it is called
+  console.log(otherParams); // ["otherParams", "anotherParam"]
+}
+
+checkInput(callbackFunc.bind(null, 'BOUND-VALUE'), 'a', 'b', 'c'); 
+```
