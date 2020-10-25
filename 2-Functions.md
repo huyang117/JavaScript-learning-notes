@@ -42,7 +42,7 @@ printParam(null); // "paramA = null; paramB = humidity"
 
 ### Rest Operator
 ```
-// the rest operator ... takes all the arguments the function gets and merges them into an array
+// The rest operator ... takes all the arguments the function gets and merges them into an array
 const sumUp = (...numbers) => {
   let sum = 0;
   for (const num of numbers) { // numbers is the array containing all the arguments passed in
@@ -56,7 +56,7 @@ sumUp(1,2,3,4,5,6,7,8,9,10); // 55
 ```
 Rest parameter must be last formal parameter; but can have parameters in front of rest parameter
 ```
-// the first two parameters will be assigned to a and b; paramaters thereafter will be merged together
+// The first two parameters will be assigned to a and b; paramaters thereafter will be merged together
 
 const sumUp = (a, b, ...numbers) => {
   let sum = 0;
@@ -96,4 +96,30 @@ const sumUp = (...numbers) => {
 }
 
 // cannot access validateNumber() outside of sumUp
+```
+
+### Callback functions
+Pass `functionA` to `functionB` as a parameter such that `functionA` is executed at certain point within `functionB`. In this case, `functionA` is the callback function and `functionB` is the higher order function.<br />
+Callback function is used in functions such as `addEventListener` and `setTimeout`.<br />
+`addEventListener('click', func)` means to execute `func` when there is an click event.<br />
+`setTimeout(func, 3000)` means to execute `func` after 3 seconds (3000 milliseconds).
+```
+// In this example, alertNoEmpty is the callback function;
+// it will be called by the checkInput function when NO empty string is passed as argument
+
+const checkInput = (alertNoEmpty, ...strings) => {
+  let hasEmptyString = false;
+  for (const str of strings) {
+    if (!str) {
+      hasEmptyString = true;
+      break;
+    }
+  }
+  if (!hasEmptyString) {
+    alertNoEmpty();
+  }
+}
+
+checkInput(() => alert('No empty string is detected'), 'a', 'b', 'c'); // will see alert
+checkInput(() => alert('No empty string is detected'), 'a', 'b', ''); // will not see alert
 ```
