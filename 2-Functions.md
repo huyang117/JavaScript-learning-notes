@@ -84,3 +84,16 @@ const sumUp = function() {
 sumUp(1,2,3,4,5,6,7); // 28
 sumUp(1,2,3,4,5,6,7,8,9,10); // 55
 ```
+
+### Functions inside of functions
+```
+const sumUp = (...numbers) => {
+
+  // validateNumber is only accessible within the sumUp function
+  const validateNumber = () => {}
+  
+  validateNumber();
+}
+
+// cannot access validateNumber() outside of sumUp
+```
