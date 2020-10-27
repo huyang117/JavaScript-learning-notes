@@ -56,4 +56,20 @@ const arr1 = Array.of(); // create an empty array, []
 const arr2 = Array.of(1, 2, 3); // create an array containing 3 elements, [1, 2, 3]
 const arr3 = Array.of(3); // create an array with one element, 3; different from how new Array(3) or Array(3) works
 ```
-Method 3 - 5 are not often used to create arrays.
+- Method 3 - 5 are not often used to create arrays.
+- It is flexible in terms of what data can be stored in an array, e.g. `Array.of(1, 'hi', [1, 2, 3])` returns an array containing a number, a string and a nested array, `
+[1, "hi", [1, 2, 3]]`
+
+#### Add & Remove elements
+- `push` adds new element at the **end** of an array
+```
+const hobbies = ['reading', 'swimming'];
+hobbies.push('jogging');
+console.log(hobbies); // ["reading", "swimming", "jogging"]
+```
+- `unshift` adds new element at the **beginning** of an array
+```
+const hobbies = ['reading', 'swimming'];
+hobbies.unshift('jogging');
+console.log(hobbies); // ["jogging", "reading", "swimming"]
+```
