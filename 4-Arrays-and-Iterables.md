@@ -119,6 +119,7 @@ console.log(hobbies); // ["reading", "swimming", undefined, undefined, undefined
 [MDN - `lastIndexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
 
 - `find()`: returns the first element in the provided array that fulfills the provided testing function. <br />
+[MDN - `find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
 ```
 const arr = [{ name: 'h'}, { name: 'o'}];
 const h = arr.find(a => a.name === 'h');
@@ -126,8 +127,13 @@ console.log(h); // {name: "h"}, not a copy of the object, but exactly the same r
 ```
 
 - `findIndex()`: returns the **index** of the first element in the provided array that fulfills the provided testing function. <br />
+[MDN - `findIndex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
 ```
 const arr = [{ name: 'h'}, { name: 'o'}];
 const hIndex = arr.findIndex(a => a.name === 'h');
 console.log(hIndex); // 0
 ```
+
+- `includes()`: check whether an array includes a certain value; return `true` or `false`.<br /> 
+Same result as `[fullArray].indexOf([target]) !== -1`. <br />
+[MDN - `includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
