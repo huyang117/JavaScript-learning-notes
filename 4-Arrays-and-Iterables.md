@@ -104,9 +104,12 @@ console.log(hobbies); // ["reading", "swimming", undefined, undefined, undefined
 ```
 
 #### Array methods
-- `splice()`: to add/ remove/ replace elements in arrays at specific index. `splice()` only applys to arrays, not to iterables or array-like objects.<br /> 
+- `splice()`: used to add/ remove/ replace elements in arrays at specific index. `splice()` only applys to arrays, not to iterables or array-like objects.<br /> 
 `arr.splice(0)` can be used to clear up an array. `arr.splice(1)` deletes everything up from index 1 (including index 1). `splice()` return an array of removed elements.<br />
-[MDN - splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+[MDN - `splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 
-- `slice()`: return a copy of a portion of an array.<br />
-[MDN - slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+- `slice()`: used toreturn a copy of a portion of an array.<br />
+[MDN - `slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+
+- `concat()`: used to merge two or more arrays.<br />
+[MDN - `concat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
