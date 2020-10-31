@@ -111,5 +111,23 @@ console.log(hobbies); // ["reading", "swimming", undefined, undefined, undefined
 - `slice()`: used toreturn a copy of a portion of an array.<br />
 [MDN - `slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 
-- `concat()`: used to merge two or more arrays.<br />
+- `concat()`: used to merge two or more arrays or concatenate values into array. Return a new array instead of changing the original array.<br />
 [MDN - `concat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+
+- `indexOf()` and `lastIndexOf()`: to find the index of element.<br />
+[MDN - `indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)<br />
+[MDN - `lastIndexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
+
+- `find()`: returns the first element in the provided array that fulfills the provided testing function. <br />
+```
+const arr = [{ name: 'h'}, { name: 'o'}];
+const h = arr.find(a => a.name === 'h');
+console.log(h); // {name: "h"}, not a copy of the object, but exactly the same reference value
+```
+
+- `findIndex()`: returns the **index** of the first element in the provided array that fulfills the provided testing function. <br />
+```
+const arr = [{ name: 'h'}, { name: 'o'}];
+const hIndex = arr.findIndex(a => a.name === 'h');
+console.log(hIndex); // 0
+```
