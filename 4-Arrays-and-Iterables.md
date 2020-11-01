@@ -137,3 +137,13 @@ console.log(hIndex); // 0
 - `includes()`: check whether an array includes a certain value; return `true` or `false`.<br /> 
 Same result as `[fullArray].indexOf([target]) !== -1`. <br />
 [MDN - `includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+
+- `sort()`<br />
+[MDN - `sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+```
+const arr = [9, 4, 11, 7];
+console.log(arr.sort((a, b) => a - b)); // pass the sorting logic, in this case, ascending; result is [4, 7, 9, 11]
+```
+
+- `reverse()`: reverse an array. <br />
+[MDN - `reverse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
