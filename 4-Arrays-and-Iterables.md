@@ -147,3 +147,29 @@ console.log(arr.sort((a, b) => a - b)); // pass the sorting logic, in this case,
 
 - `reverse()`: reverse an array. <br />
 [MDN - `reverse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+
+- `filter()`: creates a **new array** with all elements that pass the test implemented by the provided function.<br />
+[MDN - `filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+```
+const arr = [9,4,11,7];
+console.log(arr.filter(a => a % 2 === 0)); // [4]
+```
+
+- `reduce()`: execute a reducer function and result in a single output value.<br />
+[MDN - `reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+#### Array and String
+- `split()`: split string into an array.<br />
+[MDN - `split()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+```
+const str = 'hey;this;is;daniel';
+const arr = str.split(';');
+console.log(arr); // ["hey", "this", "is", "daniel"]
+```
+
+- `join()`: join elements of an array into a string. The elements are separated by **commas (default)** or a specified separator string.<br />
+[MDN - `join()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+```
+const elements = [1, 2, 3];
+console.log(elements.join()); // "1,2,3"
+```
