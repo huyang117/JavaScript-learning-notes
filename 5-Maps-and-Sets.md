@@ -10,6 +10,7 @@
 | Zero-based index to access elements | No index-based access             | Key-based access                                                        |
 
 ### Set
+[MDN - Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 #### Set methods
 
 - `has()`: to check whether an element exists in a set; return `true` or `false`
@@ -42,3 +43,5 @@ for (const value of ids.values()) {
 // "from"
 // "america"
 ```
+
+### Map
