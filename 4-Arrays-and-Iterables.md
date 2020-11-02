@@ -173,3 +173,16 @@ console.log(arr); // ["hey", "this", "is", "daniel"]
 const elements = [1, 2, 3];
 console.log(elements.join()); // "1,2,3"
 ```
+
+#### Array Destructuring
+```
+const elements = [1, 2, 3];
+const [a, b, c, d] = elements;
+console.log(a, b, c, d); // 1, 2, 3, undefined
+```
+```
+const elements = [1, 2, 3, 4, 5, 6];
+const [a, b, c, ...d] = elements;
+console.log(a, b, c, d); // 1, 2, 3, [4, 5, 6]
+```
+[MDN - Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
