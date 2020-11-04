@@ -142,11 +142,16 @@ const checkInput = (logNoEmpty, ...strings) => {
 
 const callbackFunc = function(boundVal, ...otherParams) {
   // bound value, in this case, 'BOUND-VALUE', will be passed in as the first parameter
-  console.log(boundVal + ', no empty string is passed in'); // "BOUND-VALUE, no empty string is passed in"
+  console.log(boundVal + ', no empty string is passed in'); // this line of code logs: "BOUND-VALUE, no empty string is passed in"
   
   // followed by other arguments are passed to bound function at the time it is called
-  console.log(otherParams); // ["otherParams", "anotherParam"]
+  console.log(otherParams); // this line of code logs: ["otherParams", "anotherParam"]
 }
 
 checkInput(callbackFunc.bind(null, 'BOUND-VALUE'), 'a', 'b', 'c'); 
+```
+if in the code above, the last command changes to `checkInput(callbackFunc, 'a', 'b', 'c');`, the console logs will become:
+```
+"otherParams, no empty string is passed in"
+["anotherParam"]
 ```
