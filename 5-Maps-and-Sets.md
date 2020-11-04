@@ -45,3 +45,14 @@ for (const value of ids.values()) {
 ```
 
 ### Map
+[MDN - Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+#### Map methods
+- create `Map` object from 2-D array
+```
+const map = new Map([['key1', 'value1'], ['key2', 'value2']]);
+console.log(map.get('key1')); // "value1"
+console.log(map.size); // 2
+```
+
+- add data to a map using `set()`
