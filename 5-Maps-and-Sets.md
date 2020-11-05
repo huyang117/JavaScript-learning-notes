@@ -114,7 +114,7 @@ for (const value of map.values()) {
 
 #### WeakSet
 [MDN - WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
-- `WeakSet` stores object only.
+- `WeakSet` stores objects only.
 - `WeakSet` has no method to get all the entries.
 - >If no other references to an object stored in the WeakSet exist, those objects can be garbage collected (from MDN).
 ```
@@ -125,4 +125,28 @@ persons.add(person);
 console.log(persons.has(person)); // true
 persons.delete(person);
 console.log(persons.has(person)); // false
+```
+
+#### WeakMap
+[MDN - WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- Key must be object type
+- Keys are not enumerable
+- The keys are weakly referenced, allowing it to be garbage collected
+```
+const wm1 = new WeakMap();
+const wm2 = new WeakMap();
+const wm3 = new WeakMap();
+
+const key1 = {};
+const key2 = () => {};
+const key3 = window;
+
+wm1.set(key1, 'value1');
+wm1.set(key2, undefined);
+wm1.set(wm2, wm3); // // keys and values can be any objects.
+wm2.set(key3, 'value3')
+
+console.log(wm1.has(key1)); // true
+console.log(wm1.has(key2)); // true, even with value set to undefined
+console.log(wm2.get(key3)); // "value3"
 ```
