@@ -11,6 +11,7 @@
 
 ### Set
 [MDN - Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
 #### Set methods
 
 - `has()`: to check whether an element exists in a set; return `true` or `false`
@@ -108,3 +109,20 @@ for (const value of map.values()) {
 |Can use ANY values (and types) as keys                     | Only may use strings, numbers or symbols as keys|
 |Better performance for large quantities of data            | Good for small/ medium-sized sets of data       |
 |Better performance when adding and removing data frequently| Easier and quicker to create                    |
+
+### WeakSet & WeakMap
+
+#### WeakSet
+[MDN - WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- `WeakSet` stores object only.
+- `WeakSet` has no method to get all the entries.
+- >If no other references to an object stored in the WeakSet exist, those objects can be garbage collected (from MDN).
+```
+let person = { name: 'max' };
+const persons = new WeakSet();
+persons.add(person);
+
+console.log(persons.has(person)); // true
+persons.delete(person);
+console.log(persons.has(person)); // false
+```
