@@ -157,6 +157,29 @@ console.log(arr.filter(a => a % 2 === 0)); // [4]
 
 - `reduce()`: execute a reducer function and result in a single output value.<br />
 [MDN - `reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+```
+const arr = [13, 7, 7, 36, 18, 3, 7, 1, 15, 31];
+
+const findMaxAndMin = (...arguments) => {
+  // return an array of length 2, 
+  // first element is the min value in the array, 
+  // second element is the max value in the array
+  return arguments.reduce(
+    (accumulator, customValue) => {
+      accumulator[0] =
+        accumulator[0] < customValue ? accumulator[0] : customValue;
+      accumulator[1] =
+        accumulator[1] > customValue ? accumulator[1] : customValue;
+      return accumulator;
+    },
+    new Array(2)
+  );
+};
+
+const [min, max] = findMaxAndMin(...arr);
+console.log("min", min); // min 1
+console.log("max", max); // max 36
+```
 
 #### Array and String
 - `split()`: split string into an array.<br />
