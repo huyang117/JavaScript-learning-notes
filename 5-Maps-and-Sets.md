@@ -55,7 +55,7 @@ console.log(map.get('key1')); // "value1"
 console.log(map.size); // 2
 ```
 
-- add data to a map using `set()`
+- add data to a map using `set()`; check key exists or not using `has()`
 ```
 let keyString = 'key String';
 let keyObj = {};
@@ -69,8 +69,11 @@ map.set(keyFunc, 'value for keyFunc');
 console.log(map.size); // 3
 
 console.log(map.get('key String')); // "value for keyString"
-console.log(map.get({})); // undefined
-console.log(map.get(() => {})); // undefined
+console.log(map.has('key String')); // true
+console.log(map.delete('key String')); // true
+
+console.log(map.get({})); // undefined; has() and delete() will return false
+console.log(map.get(() => {})); // undefined; has() and delete() will return false
 ```
 
 - loop through the entries using `for...of` loop
