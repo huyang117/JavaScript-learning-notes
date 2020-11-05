@@ -2,7 +2,7 @@
 
 ### Comparison - Arrays, Sets, Maps
 | Arrays                              | Sets                              | Maps                                                                    |
-|:------------------------------------|:----------------------------------|:------------------------------------------------------------------------|
+|-------------------------------------|-----------------------------------|-------------------------------------------------------------------------|
 | Store Data of any kind and length   | Store Data of any kind and length | Store key-value data of any kind and length, any key values are allowed |
 | Iterable; special array methods available | Iterable; special set methods available | Iterable; special map methods available                     |
 | Order is guranteed                  | Order is not guranteed            | Order is guranteed                                                      |
@@ -102,3 +102,9 @@ for (const value of map.values()) {
 }
 ```
 
+#### Maps and Objects
+|Maps                                                       |Objects                                          |
+|-----------------------------------------------------------|-------------------------------------------------|
+|Can use ANY values (and types) as keys                     | Only may use strings, numbers or symbols as keys|
+|Better performance for large quantities of data            | Good for small/ medium-sized sets of data       |
+|Better performance when adding and removing data frequently| Easier and quicker to create                    |
