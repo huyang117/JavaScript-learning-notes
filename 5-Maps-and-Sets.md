@@ -56,3 +56,46 @@ console.log(map.size); // 2
 ```
 
 - add data to a map using `set()`
+```
+let keyString = 'key String';
+let keyObj = {};
+let keyFunc = () => {};
+
+let map = new Map();
+map.set(keyString, 'value for keyString');
+map.set(keyObj, 'value for keyObj');
+map.set(keyFunc, 'value for keyFunc');
+
+console.log(map.size); // 3
+
+console.log(map.get('key String')); // "value for keyString"
+console.log(map.get({})); // undefined
+console.log(map.get(() => {})); // undefined
+```
+
+- loop through the entries using `for...of` loop
+```
+for (const entry of map.entries()) {
+  console.log(entry);
+}
+
+// also can use array destructuring
+for (const [key, value] of map.entries()) {
+  console.log(key, value);
+}
+```
+
+- loop through the keys using `for...of` loop
+```
+for (const key of map.keys()) {
+  console.log(key);
+}
+```
+
+- loop through the values using `for...of` loop
+```
+for (const value of map.values()) {
+  console.log(value);
+}
+```
+
