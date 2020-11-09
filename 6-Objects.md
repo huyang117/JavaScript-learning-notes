@@ -43,3 +43,41 @@ const person = {
 
 console.log(person[1.5]); // "hey"
 ```
+
+#### Spread operator and objects
+Recap: The spread operator `...` does a shallow copy only. It copies the top level key-value pairs. Any nested reference values are kept. 
+```
+const person = {
+  name: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+const copyPerson = {...person}; // The hobbies array in person and copy person point to the same object. Same reference.
+
+copyPerson.name = 'alice';
+copyPerson.hobbies.push('sleeping');
+
+console.log(person.name); // "max"
+console.log(copyPerson.name); // "alice"
+
+console.log(person.hobbies); // ["eating", "playing", "sleeping"]
+console.log(copyPerson.hobbies); // ["eating", "playing", "sleeping"]
+```
+To copy the nested reference values:
+```
+const person = {
+  name: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+const copyPerson = {...person, hobbies: [...person.hobbies]};
+
+copyPerson.name = 'alice';
+copyPerson.hobbies.push('sleeping');
+
+console.log(person.name); // "max"
+console.log(copyPerson.name); // "alice"
+
+console.log(person.hobbies); // ["eating", "playing"]
+console.log(copyPerson.hobbies); // ["eating", "playing", "sleeping"]
+```
