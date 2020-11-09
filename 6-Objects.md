@@ -81,3 +81,26 @@ console.log(copyPerson.name); // "alice"
 console.log(person.hobbies); // ["eating", "playing"]
 console.log(copyPerson.hobbies); // ["eating", "playing", "sleeping"]
 ```
+Another way to copy an object is to use `Object.assign()` - [MDN Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+#### Object destructuring
+```
+const person = {
+  name: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+const { name } = person;
+console.log(name); // "max"
+```
+Assign a new name to the extracted property using `:`
+```
+const person = {
+  username: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+const { username: personName } = person; // rename the property name
+console.log(username); // error
+console.log(personName); // "max"
+```
