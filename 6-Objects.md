@@ -104,3 +104,39 @@ const { username: personName } = person; // rename the property name
 console.log(username); // error
 console.log(personName); // "max"
 ```
+
+#### Check for property existence
+- use `in`
+```
+const person = {
+  username: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+console.log('username' in person); // true
+console.log('age' in person); // false
+```
+- check whether [object].[property] is `undefined`
+```
+const person = {
+  username: 'max',
+  hobbies: ['eating', 'playing'],
+}
+
+const { username, age } = person;
+
+if (username) {
+  console.log(`username = ${username}`);
+} else {
+  console.log(`username is undefined`);
+}
+
+if (age) { // undefined will be coerced to false
+  console.log(`age = ${age}`)
+} else {
+  console.log(`age is undefined`);
+}
+
+// "username = max"
+// "age is undefined"
+```
