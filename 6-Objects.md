@@ -271,6 +271,7 @@ members.getTeamMembers();
 // result is
 // "Ben - Mocking Bird"
 // "Henry - Mocking Bird"
+
 // the arrow function does not change the binding of 'this', 
 // the 'this' in forEach function refers to the same thing as the 'this' in getTeamMembers() does
 ```
@@ -292,6 +293,7 @@ members.getTeamMembers();
 // result is
 // "Ben - undefined"
 // "Henry - undefined"
+
 // the 'this' in the callback anonymous function refers to different things than the 'this' in getTeamMembers()
 ```
 
