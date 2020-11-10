@@ -191,3 +191,49 @@ getFormattedTitle = getFormattedTitle.bind(movie); // so that 'this' inside getF
 
 console.log(getFormattedTitle()); // "LITTLE WOMEN"
 ```
+
+#### `call()` and `apply()`
+`bind()` is useful for occasions where you want to pre-configure a function for the future execution.<br />
+`bind()` prepares a function for future execution. `bind()` returns a new function object.
+
+```
+const movie = {
+  info: {
+    title: 'little women',
+  },
+  getFormattedTitle() { return this.info.title.toUpperCase(); }
+};
+
+let { getFormattedTitle } = movie;
+getFormattedTitle = getFormattedTitle.bind(movie); // assign a new function object to getFormattedTitle
+console.log(getFormattedTitle()); // "LITTLE WOMEN"
+```
+
+In the code example above, We can use `call()` instead.<br />
+`call()` executes the function right away with what `this` refers to being overrided.<br />
+So the code above can be changed to:
+
+```
+let { getFormattedTitle } = movie;
+console.log(getFormattedTitle.call(movie)); // "LITTLE WOMEN
+```
+
+The `call` in the code above can be changed to `apply()`, i.e.
+
+```
+let { getFormattedTitle } = movie;
+console.log(getFormattedTitle.apply(movie)); // "LITTLE WOMEN"
+```
+
+`apply()` is similar to `call()`. The first parameter is what `this` binds to. But the remaining parameters are passed in different ways.
+- For `call()`, other parameters are passed in and separated by comma, e.g. `getFormattedTitle.call(movie, paramA, paramB, paramC)`
+- For `apply()`, other parameters are passed in as an array, e.g. `getFormattedTitle.apply(movie, [paramA, paramB, paramC])`
+
+```
+console.log(Math.max.call(null, 1, 2, 3, 4)); // 4
+console.log(Math.max.apply(null, [1, 2, 3, 4])); // 4
+```
+- [MDN - `bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- [MDN - `call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [MDN - `apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
