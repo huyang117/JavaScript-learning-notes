@@ -254,7 +254,22 @@ const filterMovie = () => { console.log(this); }
 const filterButton = document.getElementById('search-btn');
 filterButton.addEventListener('click', filterMovie); // 'this' refers to the global window object
 ```
-In arrow functions, `this` is not overwritten. In the code above, `this` refers to the same thing as it would refer to outside of the function. Below is an example where the arrow function shines regarding the reference of `this`:
+In arrow functions, `this` is not overwritten. In the code above, `this` refers to the same thing as it would refer to outside of the function.<br />
+
+Example of `this` in a method defined using arrow-function and called on an object.
+```
+const person = { 
+    name: 'Max',
+    greet: () => {
+        console.log(this);
+    }
+};
+ 
+person.greet(); // logs the window object, "this" refers to global (window) object, even in strict mode
+```
+
+Below is an example where the arrow function shines regarding the reference of `this`:
+- Scenario I: use arrow function within `forEach()`
 ```
 const members = {
   teamName: 'Mocking Bird',
@@ -275,7 +290,7 @@ members.getTeamMembers();
 // the arrow function does not change the binding of 'this', 
 // the 'this' in forEach function refers to the same thing as the 'this' in getTeamMembers() does
 ```
-However, if we change the arrow function passed to `forEach` to a normal function declared with `function` keyword:
+- Scenario II: change the arrow function passed to `forEach` to a normal function declared with `function` keyword:
 ```
 const members = {
   teamName: 'Mocking Bird',
