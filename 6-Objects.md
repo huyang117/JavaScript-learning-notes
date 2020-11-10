@@ -156,7 +156,7 @@ const movie = {
 console.log(movie.getFormattedTitle()); // "LITTLE WOMEN"
 // in this case, 'this' refers to the movie object
 ```
-but if we use object destructuring
+However, if we use object destructuring
 ```
 const movie = {
   info: {
@@ -172,8 +172,9 @@ const { getFormattedTitle } = movie;
 
 console.log(getFormattedTitle()); // "TypeError: Cannot read property 'title' of undefined
 // because in this case, 'this' refers to the window object
+// side note, if we specify 'use strict', then console.log(this) will log 'undefined' instead of the window object
 ```
-in order to specify which object the `this` keyword should refer to, we can use `bind`.
+In order to specify which object the `this` keyword should refer to, we can use `bind`.
 ```
 const movie = {
   info: {
@@ -236,4 +237,61 @@ console.log(Math.max.apply(null, [1, 2, 3, 4])); // 4
 - [MDN - `bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
 - [MDN - `call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 - [MDN - `apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+#### '`this`' in functions bound to event listener 
+The browser binds `this` on event listeners to the DOM element that triggers the event.
+```
+const filterMovie = function() { console.log(this); } // normal function declared with 'function' keyword instead of arrow function
+
+const filterButton = document.getElementById('search-btn');
+filterButton.addEventListener('click', filterMovie); // 'this' refers to the filterButton element
+```
+
+#### '`this`' and arrow function
+```
+const filterMovie = () => { console.log(this); }
+
+const filterButton = document.getElementById('search-btn');
+filterButton.addEventListener('click', filterMovie); // 'this' refers to the global window object
+```
+In arrow functions, `this` is not overwritten. In the code above, `this` refers to the same thing as it would refer to outside of the function. Below is an example where the arrow function shines regarding the reference of `this`:
+```
+const members = {
+  teamName: 'Mocking Bird',
+  people: ['Ben', 'Henry'],
+  getTeamMembers() {
+    this.people.forEach(person => {
+      console.log(`${person} - ${this.teamName}`); 
+    })
+  }
+};
+
+members.getTeamMembers();
+
+// result is
+// "Ben - Mocking Bird"
+// "Henry - Mocking Bird"
+// the arrow function does not change the binding of 'this', 
+// the 'this' in forEach function refers to the same thing as the 'this' in getTeamMembers() does
+```
+However, if we change the arrow function passed to `forEach` to a normal function declared with `function` keyword:
+```
+const members = {
+  teamName: 'Mocking Bird',
+  people: ['Ben', 'Henry'],
+  getTeamMembers() {
+    this.people.forEach(function(person) {
+      // console.log(this); // 'this' refers to the global window object 
+      console.log(`${person} - ${this.teamName}`);
+    })
+  }
+};
+
+members.getTeamMembers();
+
+// result is
+// "Ben - undefined"
+// "Henry - undefined"
+// the 'this' in the callback anonymous function refers to different things than the 'this' in getTeamMembers()
+```
 
