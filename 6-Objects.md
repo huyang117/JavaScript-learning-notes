@@ -142,6 +142,8 @@ if (age) { // undefined will be coerced to false
 ```
 
 ### '`this`' keyword
+Often, "this" will refer to the object to which the method belongs, but that depends on how the method was called.<br />
+[MDN - this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 ```
 const movie = {
   info: {
@@ -312,3 +314,28 @@ members.getTeamMembers();
 // the 'this' in the callback anonymous function refers to different things than the 'this' in getTeamMembers()
 ```
 
+### Getters & Setters
+- [MDN - getter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+- [MDN - setter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
+```
+const movie = {
+  set title(userInput) {
+    if (userInput) {
+      this._title = userInput;
+    } else {
+      this._title = 'DEFAULT_TITLE';
+    }
+  },
+  get title() {
+    return this._title.toUpperCase();
+  },
+};
+
+movie.title = ''; // invoke setter, empty input value goes to else condition
+console.log(movie.title); // invoke getter
+
+movie.title = 'Rebecca';
+console.log(movie.title); // "REBECCA"
+
+console.log(Object.keys(movie)); // ["title", "_title"], so "_title" is also one of the keys in movie object, and the value for "_title" key is the userInput value, in this case, 'Rebecca'
+```
