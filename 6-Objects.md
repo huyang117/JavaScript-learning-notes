@@ -140,3 +140,54 @@ if (age) { // undefined will be coerced to false
 // "username = max"
 // "age is undefined"
 ```
+
+### '`this`' keyword
+```
+const movie = {
+  info: {
+    title: 'little women',
+  },
+  getFormattedTitle() {
+    console.log(this); // to check what 'this' refers to
+    return this.info.title.toUpperCase();
+  }
+};
+
+console.log(movie.getFormattedTitle()); // "LITTLE WOMEN"
+// in this case, 'this' refers to the movie object
+```
+but if we use object destructuring
+```
+const movie = {
+  info: {
+    title: 'little women',
+  },
+  getFormattedTitle() {
+    // console.log(this);
+    return this.info.title.toUpperCase();
+  }
+};
+
+const { getFormattedTitle } = movie;
+
+console.log(getFormattedTitle()); // "TypeError: Cannot read property 'title' of undefined
+// because in this case, 'this' refers to the window object
+```
+in order to specify which object the `this` keyword should refer to, we can use `bind`.
+```
+const movie = {
+  info: {
+    title: 'little women',
+  },
+  getFormattedTitle() {
+    // console.log(this);
+    return this.info.title.toUpperCase();
+  }
+};
+
+let { getFormattedTitle } = movie;
+
+getFormattedTitle = getFormattedTitle.bind(movie); // so that 'this' inside getFormattedTitle will refer to the movie object
+
+console.log(getFormattedTitle()); // "LITTLE WOMEN"
+```
