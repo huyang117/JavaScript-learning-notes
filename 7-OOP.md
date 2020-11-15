@@ -2,6 +2,8 @@
  
 ### Classes & Instances
 
+[MDN - Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+
 #### Class declarations
 ```
 class Product { // convention of class name: capitalize the first letter
@@ -44,3 +46,5 @@ console.log(new Product('A Mirror', '#', 20.5, 'A make-up mirror with light'));
 | Only accessible on the class and not on instance          | Only accessible on instance created based on the class using `new` keyword |
 | Typically used in helper class, global configuration etc. | Typically used for core, re-useable logic                                  |
 
+#### Inheritance
+[MDN - inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
