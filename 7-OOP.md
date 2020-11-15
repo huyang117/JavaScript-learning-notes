@@ -37,4 +37,10 @@ console.log(new Product('A Mirror', '#', 20.5, 'A make-up mirror with light'));
 } */
 ```
 
+#### Static properties, fields, methods
+| Static Field/ Property/ Method                            | Instance Field/ Property/ Method                                           |
+|:----------------------------------------------------------|:---------------------------------------------------------------------------|
+| Defined with `static` keyword                             | Defined without `static` keyword                                           |
+| Only accessible on the class and not on instance          | Only accessible on instance created based on the class using `new` keyword |
+| Typically used in helper class, global configuration etc. | Typically used for core, re-useable logic                                  |
 
