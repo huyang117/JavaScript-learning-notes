@@ -48,3 +48,8 @@ console.log(new Product('A Mirror', '#', 20.5, 'A make-up mirror with light'));
 
 #### Inheritance
 [MDN - inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
+
+#### Private fields, properties, methods
+[MDN - private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)<br />
+[MDN - private fields declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#:~:text=Private%20field%20declarations,-Using%20private%20fields&text=By%20defining%20things%20which%20are,front%20in%20a%20field%20declaration.)
+
