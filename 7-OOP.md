@@ -132,4 +132,4 @@ Object.defineProperty(person, 'printName', {
   writable: false,
 });
 ```
-Then, if we run the `for-in` loop again afterwards, only `name` will be logged and `printName` is now skipped.
+Then, if we run the `for-in` loop again afterwards, only `name` will be logged and `printName` will be skipped.
