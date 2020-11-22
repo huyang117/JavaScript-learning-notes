@@ -14,11 +14,17 @@ function Person() {  // convention is to capitalize the name for constructor fun
 const person = new Person(); 
 person.print(); // "Hi I am max, I am 30 years old"
 ```
-In the code above, if we call `const person = Person();` without the `new` keyword, `person` would be `undefined` because `function Person()` does not return anything. <br />
-`class` is more like a syntactical sugar for the constructor function (i.e. an easier way of writing blueprint definitions). Constructor function can be confusing since it has the form of `function` but behaves a bit differently from the normal functions.<br />
+In the code above, if we call `const person = Person();` without the `new` keyword, `person` would be `undefined` because `function Person()` does not return anything.
+
+`class` is more like a syntactical sugar for the constructor function (i.e. an easier way of writing blueprint definitions). Constructor function can be confusing since it has the form of `function` but behaves a bit differently from the normal functions.
+
 Behind the scenes, `class` does more than setting up the constructor function.
 
 ### Prototypes
 >JavaScript is a prototype-based language which uses prototypical inheritance.
-- [MDN - Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)<br />
-- If JavaScript tries to access a certain property or method and does not find it on an object, it automatically looks at the prototype object and looks for the property there. If it does not find it there, it looks at the prototype of the prototype and so on (walking up the chain of prototypes). If in the end it did not find that property or method anywhere, it would return `undefined` for the property or throw an error for the method.
+
+[MDN - Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+
+If JavaScript tries to access a certain property or method and does not find it on an object, it automatically looks at the prototype object and looks for the property there. If it does not find it there, it looks at the prototype of the prototype and so on (walking up the chain of prototypes). If in the end it did not find that property or method anywhere, it would return `undefined` for the property or throw an error for the method.
+
+Every object has `__proto__` property that points at the prototype object.
