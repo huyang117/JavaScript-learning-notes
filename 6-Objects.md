@@ -196,7 +196,8 @@ console.log(getFormattedTitle()); // "LITTLE WOMEN"
 ```
 
 #### `call()` and `apply()`
-`bind()` is useful for occasions where you want to pre-configure a function for the future execution.<br />
+`bind()` is useful for occasions where you want to pre-configure a function for the future execution.
+
 `bind()` prepares a function for future execution. `bind()` returns a new function object.
 
 ```
@@ -212,8 +213,10 @@ getFormattedTitle = getFormattedTitle.bind(movie); // assign a new function obje
 console.log(getFormattedTitle()); // "LITTLE WOMEN"
 ```
 
-In the code example above, We can use `call()` instead.<br />
-`call()` executes the function right away with what `this` refers to being overrided.<br />
+In the code example above, We can use `call()` instead.
+
+`call()` executes the function right away with what `this` refers to being overrided.
+
 So the code above can be changed to:
 
 ```
@@ -256,7 +259,7 @@ const filterMovie = () => { console.log(this); }
 const filterButton = document.getElementById('search-btn');
 filterButton.addEventListener('click', filterMovie); // 'this' refers to the global window object
 ```
-In arrow functions, `this` is not overwritten. In the code above, `this` refers to the same thing as it would refer to outside of the function.<br />
+In arrow functions, `this` is not overwritten. In the code above, `this` refers to the same thing as it would refer to outside of the function.
 
 Example of `this` in a method defined using arrow-function and called on an object.
 ```
