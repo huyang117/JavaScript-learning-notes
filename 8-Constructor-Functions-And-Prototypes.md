@@ -1,4 +1,4 @@
-## Constructor Functions
+## Constructor Functions and Prototypes
 
 ### Constructor function
 A way to create blueprint for objects without using `class`
@@ -18,5 +18,5 @@ In the code above, if we call `const person = Person();` without the `new` keywo
 `class` is more like a syntactical sugar for the constructor function (i.e. an easier way of writing blueprint definitions). Constructor function can be confusing since it has the form of `function` but behaves a bit differently from the normal functions.<br />
 Behind the scenes, `class` does more than setting up the constructor function.
 
-
-## Prototypes & Prototypical Inheritance
+### Prototypes
+>JavaScript is a prototype-based language which uses prototypical inheritance.
