@@ -16,7 +16,6 @@ class Product { // convention of class name: capitalize the first letter
 console.log(new Product());
 ```
 `title`, `imageURL`, `price`, `description` are fields defined in the class; and will be the properties of the object created from the `Product` class. In this case, every instance created will have a `title` property with value = 'DEFAULT TITLE', while the other three properties will be `undefined` when the object is created.
-<br />
 
 Use `constructor` method:
 ```
@@ -50,7 +49,8 @@ console.log(new Product('A Mirror', '#', 20.5, 'A make-up mirror with light'));
 [MDN - inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
 
 #### Private fields, properties, methods
-[MDN - private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)<br />
+[MDN - private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)
+
 [MDN - private fields declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#:~:text=Private%20field%20declarations,-Using%20private%20fields&text=By%20defining%20things%20which%20are,front%20in%20a%20field%20declaration.)
 
 #### `instanceof` operator
@@ -99,7 +99,8 @@ console.log(Object.getOwnPropertyDescriptors(person));
 //   }
 // }
 ```
-As shown above, there are 4 configuration items: `configurable`(whether can be deleted), `enumerable`(whether can appear in for-in loop), `value` and `writable`(whether can be set to other values). `Object.defineProperty()` can be used to change the configuration item.<br />
+As shown above, there are 4 configuration items: `configurable`(whether can be deleted), `enumerable`(whether can appear in for-in loop), `value` and `writable`(whether can be set to other values). `Object.defineProperty()` can be used to change the configuration item.
+
 For example, with the `person` object created above, we can set the `writable` to `false` for the `name` property to lock it down:
 ```
 Object.defineProperty(person, 'name', {
@@ -113,7 +114,8 @@ person.name = 'brie';
 
 console.log(person.name); // still "max"; changes are not accepted and no error is thrown
 ```
-We can still use `delete person.name` to delete the `name` property. But If we set `configurable` to be `false` in the code above, then `delete person.name` will return `false` and the `name` property will still be there.<br />
+We can still use `delete person.name` to delete the `name` property. But If we set `configurable` to be `false` in the code above, then `delete person.name` will return `false` and the `name` property will still be there.
+
 To elaborate what `enumerable` means: 
 ```
 for (const key in person) {
