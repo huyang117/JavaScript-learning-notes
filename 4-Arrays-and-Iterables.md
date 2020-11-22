@@ -3,11 +3,13 @@
 ### Some concepts
 
 #### Iterables
-Definition: An iterable is an object where you can use the `for-of` loop.<br />
+Definition: An iterable is an object where you can use the `for-of` loop.
+
 Example: Array, NodeList, String, Map, Set
 
 #### Array-like Object
-Definition: Objects that have a `length` property and use indexes to access items.<br />
+Definition: Objects that have a `length` property and use indexes to access items.
+
 Example: NodeList, String
 
 ### Array
@@ -18,7 +20,8 @@ Method 1: most common way
 const arr = [1, 2, 3];
 ```
 
-Method 2: use `Array.from()`, which is useful in converting iterables and array-like objects into arrays. <br />
+Method 2: use `Array.from()`, which is useful in converting iterables and array-like objects into arrays. 
+
 `Array.from()` only accepts one argument.
 ```
 const strArr = Array.from('Hi!'); // ["H", "i", "!"], an array of characters in the string
