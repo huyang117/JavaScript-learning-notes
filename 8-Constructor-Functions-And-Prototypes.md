@@ -20,3 +20,5 @@ Behind the scenes, `class` does more than setting up the constructor function.
 
 ### Prototypes
 >JavaScript is a prototype-based language which uses prototypical inheritance.
+- [MDN - Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)<br />
+- If JavaScript tries to access a certain property or method and does not find it on an object, it automatically looks at the prototype object and looks for the property there. If it does not find it there, it looks at the prototype of the prototype and so on (walking up the chain of prototypes). If in the end it did not find that property or method anywhere, it would return `undefined` for the property or throw an error for the method.
