@@ -28,3 +28,20 @@ Behind the scenes, `class` does more than setting up the constructor function.
 If JavaScript tries to access a certain property or method and does not find it on an object, it automatically looks at the prototype object and looks for the property there. If it does not find it there, it looks at the prototype of the prototype and so on (walking up the chain of prototypes). If in the end it did not find that property or method anywhere, it would return `undefined` for the property or throw an error for the method.
 
 Every object has `__proto__` property that points at the prototype object.
+```
+function Person() {
+  this.age = 30;
+  this.name = 'max';
+  this.print = function() {
+    console.log(`Hi I am ${this.name}, I am ${this.age} years old`);
+  }
+}
+
+Person.prototype.printAge = function() { 
+  console.log(this.age);
+} // so when we create an object based on Person, we have the printAge method available
+
+const person = new Person();
+console.log(person.__proto__ === Person.prototype); // true
+person.printAge(); // 30
+```
