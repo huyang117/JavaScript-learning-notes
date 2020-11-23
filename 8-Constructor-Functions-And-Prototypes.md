@@ -28,8 +28,7 @@ Behind the scenes, `class` does more than setting up the constructor function.
 If JavaScript tries to access a certain property or method and does not find it on an object, it automatically looks at the prototype object and looks for the property there. If it does not find it there, it looks at the prototype of the prototype and so on (walking up the chain of prototypes). If in the end it did not find that property or method anywhere, it would return `undefined` for the property or throw an error for the method.
 
 #### `__proto__` and `prototype` (both are property)
-
-Every object has `__proto__` property that points at the prototype object.
+Code Example
 ```
 function Person() {
   this.age = 30;
@@ -47,16 +46,17 @@ const person = new Person();
 console.log(person.__proto__ === Person.prototype); // true
 person.printAge(); // 30
 ```
-In the code above, `Person.prototype` defines what will be assigned as a prototype to any object that is created based on the `Person` constructor function. Therefore, any object created based on `Person` receives the default prototype with the `printAge` function added.
 
-Another way (rarely used) to create a new object (continue with the code above) using `__proto__`:
+- Every object has `__proto__` property that points at the prototype object.
+- Another way (rarely used) to create a new object (continue with the code above) using `__proto__`:
 ```
 const p = new Person();
 const p2 = new p.__proto__.constructor(); // don't forget the new keyword
 console.log('p2', p2); // get a new Person object
 ```
+- In the code example above, `Person.prototype` defines what will be assigned as a prototype to any object that is created based on the `Person` constructor function. Therefore, any object created based on `Person` receives the default prototype with the `printAge` function added.
 
-The `prototype` property exists on everything that is a constructor function. It defines what will be assigned as a prototype to any object that is created based on the this constructor function. Objects created using object literal`{}` do not have the `prototype` property. 
+- The `prototype` property exists on everything that is a constructor function. It defines what will be assigned as a prototype to any object that is created based on the this constructor function. Objects created using object literal`{}` do not have the `prototype` property: 
 ```
 const book = {
   price: 23,
@@ -67,6 +67,10 @@ console.dir(book);
 // price: 23
 // __proto__: Object
 ```
+
+To summarize the difference between `someObj.__proto__` vs `SomeFunction.prototype`:
+
+`__prototype` points at the prototype object of `someObj`; `prototype` points at the prototype object that will be assigned as prototype to objects created based on `SomeFunction`.
 
 #### Side note about static method
 In the example used in "`__proto__` and `prototype` (both are property)" section, `Person.prototype.printAge` defines a method available to every instance created based on `Person` constructor function. In constrast, `Person.[function_name]` defines function that is only available to the constructor function object itself.
