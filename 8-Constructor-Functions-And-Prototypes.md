@@ -45,3 +45,20 @@ const person = new Person();
 console.log(person.__proto__ === Person.prototype); // true
 person.printAge(); // 30
 ```
+Another way (rarely used) to create a new object (continue with the code above):
+```
+const p = new Person();
+const p2 = new p.__proto__.constructor(); // don't forget the new keyword
+console.log('p2', p2); // get a new Person object
+```
+Objects created using object literal`{}` do not have the `prototype` property.
+```
+const book = {
+  price: 23,
+};
+
+console.dir(book);
+// Object
+// price: 23
+// __proto__: Object
+```
