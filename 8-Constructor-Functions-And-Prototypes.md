@@ -94,6 +94,9 @@ Person.staticMethod(); // "This method is not available on the instances created
 ```
 
 #### `Object`
+
+[MDN - Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
 The default prototype object that all objects can come back to is `Object.prototype` (not `Object` but `Object.prototype`).
 
 Any object created using the object literal notation or based on constructor functions by default always use the `Object` constructor function, and will therefore use `Object.prototype` as its fallback value.
@@ -103,3 +106,27 @@ So the prototype chain ends at `Object.prototype`.
 ```
 console.log(Object.prototype.__proto__); // null
 ```
+
+#### class VS constructor function - How field/ property is added
+```
+class Human extends Species {
+  name = 'max'; // the name property will be added after super() is called
+
+  constructor() {
+    super();
+    this.age = 30;
+  }
+}
+```
+Adding a field `name` is translated to a property assignment that works in the same way as it would work if you would add it in the constructor method. So the code above is equivalent to the code below, which is clearer that all properties are added after the `super()` call. 
+```
+class Human extends Species {
+  constructor() {
+    super();
+    this.age = 30;
+    this.name = 'max'; // the name property will be added after super() is called
+  }
+}
+```
+
+#### class VS constructor function - How method is added
