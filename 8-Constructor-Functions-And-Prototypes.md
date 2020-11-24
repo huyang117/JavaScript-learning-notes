@@ -130,3 +130,28 @@ class Human extends Species {
 ```
 
 #### class VS constructor function - How method is added
+Unlike fields being added as properties, extra prototypes can be added by JavaScript when we add method in class. For example:
+```
+class Species {
+  printSpecies() {
+    console.log('printing...');
+  }
+}
+
+class Human extends Species {
+  name = 'max';
+
+  constructor() {
+    super();
+    this.age = 30;
+  }
+
+  printAge() {
+    console.log(`age = ${this.age}`);
+  }
+}
+
+const human = new Human();
+console.log(human);
+```
+The `printAge()` appears under `Human.__proto__` (in other words, `printAge()` is not part of object itself); and `printSpecies()` appears under `Species.__proto__` 
