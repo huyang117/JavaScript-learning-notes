@@ -153,5 +153,26 @@ class Human extends Species {
 
 const human = new Human();
 console.log(human);
+``` 
+The `printAge()` appears under `Human.__proto__` (in other words, `printAge()` is not part of object itself); and `printSpecies()` appears under `Species.__proto__`.
+
+By adding method to a prototype, JavaScript makes it that all the `Human` object we create share the same prototype object. For example, we can add these code and the comparison will yield `true`. (For methods defined in this way, `bind` is needed sometimes to specify what `this` keyword points at.)
 ```
-The `printAge()` appears under `Human.__proto__` (in other words, `printAge()` is not part of object itself); and `printSpecies()` appears under `Species.__proto__` 
+const human2 = new Human();
+console.log(human.__proto__ === human2.__proto__); // true, which means that they are exactly the same object in memory
+```
+In this way, less objects are created and hence less performance impact. 
+
+The equivalent code in constructor functions is:
+```
+function Human() {
+  this.age = 30;
+  this.name= 'max';
+}
+
+Human.prototype.printAge = function() {
+  console.log(`age = ${this.age}`);
+}
+```
+
+However, if in class `Human`, `printAge` is defined with the constructor method, i.e. `super(); this.age = 30; this.printAge = n() {}`, or defined outside of the constructor method but as a field, i.e. `printAge = function() {}` or use arrow function, then `printAge` will not be part of the prototype but will instead be created for every instance based on `Human`. (which means creating more objects and hence more performance impact, probably just a little bit more only).
