@@ -176,3 +176,10 @@ Human.prototype.printAge = function() {
 ```
 
 However, if in class `Human`, `printAge` is defined with the constructor method, i.e. `super(); this.age = 30; this.printAge = n() {}`, or defined outside of the constructor method but as a field, i.e. `printAge = function() {}` or use arrow function, then `printAge` will not be part of the prototype but will instead be created for every instance based on `Human`. (which means creating more objects and hence more performance impact, probably just a little bit more only).
+
+To summarize:
+
+| Method Shorthand | Property Function | Property Arrow Function |
+|------------------|-------------------|-------------------------|
+|`class Person {`<br />`greet() {}`<br />`}`|`class Person {`<br />`greet = function() {}`<br />`constructor(){`<br />`this.greet2 = function(){}`<br />`}`<br />`}`|`class Person {`<br />`greet = () => {}`<br />`constructor(){`<br />`this.greet2 = () => {}`<br />`}`<br />`}`|
+|Assigned to `Person`'s prototype and hense shared across all instances (NOT re-created per instance)| Assigned to individual instance and hence re-created per object. Need to use `bind` sometimes to specify what `this` points at | Assigned to individual instances and hence re-created per object. `this` always refers to instance |
