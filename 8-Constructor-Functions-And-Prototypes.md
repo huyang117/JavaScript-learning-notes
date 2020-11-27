@@ -183,3 +183,36 @@ To summarize:
 |------------------|-------------------|-------------------------|
 |`class Person {`<br />`greet() {}`<br />`}`|`class Person {`<br />`greet = function() {}`<br />`constructor(){`<br />`this.greet2 = function(){}`<br />`}`<br />`}`|`class Person {`<br />`greet = () => {}`<br />`constructor(){`<br />`this.greet2 = () => {}`<br />`}`<br />`}`|
 |Assigned to `Person`'s prototype and hense shared across all instances (NOT re-created per instance)| Assigned to individual instance and hence re-created per object. Need to use `bind` sometimes to specify what `this` points at | Assigned to individual instances and hence re-created per object. `this` always refers to instance |
+
+
+#### Setting & Getting Prototypes
+- `Object.getPrototypeOf()`
+```
+const course = {
+  title: "title",
+  rating: "rating",
+};
+
+console.log(Object.getPrototypeOf(course)); // works just like console.log(course.__proto__); '__proto__' is more like an unofficial feature
+```
+- `Object.setPrototypeOf`
+You can override the prototype of any object
+```
+Object.setPrototypeOf(course, {
+  printTitle: function () {
+    console.log(this.title);
+  },
+});
+
+course.printTitle(); // "title"
+console.log(course.toString()); // [object Object]
+``` 
+In the code above, we set the prototype of the `course` object to another object `{ printTitle: function () {} }`. Below is another way to write it, but the added line might not be needed. Since the prototype we set for the `course` object has the default Object prototype, `course` can still access methods available to `Object.prototype` by walking up the prototype chain.
+```
+Object.setPrototypeOf(course, {
+  ...Object.getPrototypeOf(course), // with this line added, keep the original prototype and add on something new
+  printTitle: function () {
+    console.log(this.title);
+  },
+});
+```
