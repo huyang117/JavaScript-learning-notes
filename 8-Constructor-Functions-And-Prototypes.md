@@ -20,6 +20,15 @@ In the code above, if we call `const person = Person();` without the `new` keywo
 
 Behind the scenes, `class` does more than setting up the constructor function.
 
+| Constructor Functions                                | Classes                                              |
+|:-----------------------------------------------------|:-----------------------------------------------------|
+| Blue print for Objects                               | Blue print for Objects                               |
+| Define properties and methods                        | Define properties and methods                        |
+| **Can** be called with `new` to create object        | **Must** be called with `new`, otherwise throw error |
+| All methods and properties are enumerable by default | Methods are non-enumerable by default                |
+| Not in strict mode by default                        | Always in strict mode                                |
+
+
 ### Prototypes
 >JavaScript is a prototype-based language which uses prototypical inheritance.
 
