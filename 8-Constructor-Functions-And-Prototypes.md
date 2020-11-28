@@ -186,6 +186,7 @@ To summarize:
 
 
 #### Setting & Getting Prototypes
+
 - `Object.getPrototypeOf()`
 ```
 const course = {
@@ -195,6 +196,7 @@ const course = {
 
 console.log(Object.getPrototypeOf(course)); // works just like console.log(course.__proto__); '__proto__' is more like an unofficial feature
 ```
+
 - `Object.setPrototypeOf`
 You can override the prototype of any object
 ```
@@ -215,4 +217,56 @@ Object.setPrototypeOf(course, {
     console.log(this.title);
   },
 });
+```
+
+- `Object.create()`: create object with prototype assigned right from the start
+
+[MDN - `Object.create()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+
+```
+const student = Object.create({
+  printGrade: function() {
+    console.log(this.grade);
+  }
+});
+
+console.log(student); // student is an empty object, it has a prototype with the printGrade method
+```
+To add properties to the `student` object created above. There are three ways:
+
+1. `student.name = 'max';`
+
+2. Use `Object.defineProperty()`:
+```
+Object.defineProperty(student, "grade", {
+  configurable: true,
+  value: "A",
+  writable: true,
+  enumerable: true,
+}); // add a grade property to student
+```
+
+3. Add properties within `Object.create()`. The code below achieves the same outcome as (#1 + #2)
+```
+const student = Object.create(
+  {
+    printGrade: function () {
+      console.log(this.grade);
+    },
+  },
+  {
+    name: {
+      configurable: true,
+      value: "max",
+      writable: true,
+      enumerable: true,
+    },
+    grade: {
+      configurable: true,
+      value: "A",
+      writable: true,
+      enumerable: true,
+    },
+  }
+);
 ```
