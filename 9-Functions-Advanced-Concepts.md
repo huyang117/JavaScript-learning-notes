@@ -32,3 +32,45 @@ const sideEffectFunc2 = arr => {
 
 sideEffectFunc2(hobbies);
 ```
+
+
+### Factory Functions
+
+Factory function: function that produces another function.
+
+```
+function createTaxCalculatorWithRate(rate) {
+  function calculateTaxWithAmount(amount) {
+    return rate * amount;
+  }
+  // the inner function is returned from the outer function before being executed
+  return calculateTaxWithAmount;
+}
+
+// taxCalculator1 holds reference to the inner function 'calculateTaxWithAmount' with 'rate' = 0.19
+const taxCalculator1 = createTaxCalculatorWithRate(0.19); 
+
+// taxCalculator2 holds reference to the inner function 'calculateTaxWithAmount' with 'rate' = 0.25
+const taxCalculator2 = createTaxCalculatorWithRate(0.25); 
+
+// pass the amount argument to taxCalculator1 and taxCalculator2, 'rate' has been pre-configured.
+console.log(taxCalculator1(100)); // 19
+console.log(taxCalculator2(200)); // 50
+```
+Factory function is convenient when you have a function that is called multiple times in different places and can be pre-configured in a certain way. 
+
+In the example above, the tax rate is pre-configured; and `taxCalculator1` & `taxCalculator2` created with the rate can be called multiple times with different amount.
+
+
+### Closure
+
+An important rule: every function in JavaScript is a closure.
+
+Useful resources: 
+
+[MDN - Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
+[MDN - IIFE (Immediately Invoked Function Expression) ](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
+
+
+
