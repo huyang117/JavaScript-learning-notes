@@ -73,4 +73,87 @@ Useful resources:
 [MDN - IIFE (Immediately Invoked Function Expression) ](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
 
 
+### Recursion
 
+Example of a basic recursive function: 
+
+```
+function powerOf(x, n) {
+  // specify the exit condition(s)
+  if (n === 0) return 1; 
+  if (n === 1) return x; 
+  return x * powerOf(x, n-1);
+}
+```
+
+Example of where recursive function shines:
+
+```
+const myself = {
+  name: 'max',
+  friends: [
+    {
+      name: 'mary',
+      friends: [
+        {
+          name: 'clare',
+          friends: [],
+        },
+        {
+          name: 'loki',
+          friends: [
+            {
+              name: 'xavi',
+              friends: [
+                {
+                  name: 'amy'
+                },
+              ]
+            },
+          ]
+        }
+      ],
+    },
+    {
+      name: 'penny',
+      friends: [
+        {
+          name: 'berne',
+        }
+      ]
+    }
+  ],
+}
+
+const friendsList = [];
+
+function getFriends(person) {
+  if (!person.friends) return;
+  
+  for (let friend of person.friends) {
+    friendsList.push(friend.name);
+    getFriends(friend);
+  }
+}
+
+getFriends(myself);
+
+console.log(friendsList); // ["mary", "clare", "loki", "xavi", "amy", "penny", "berne"]
+```
+The function part can be changed to this (to avoid using `friendsList` as global variable): 
+```
+// const friendsList = [];
+
+function getFriends(person) {
+  const friendsList = [];
+  if (!person.friends) return [];
+  
+  for (let friend of person.friends) {
+    friendsList.push(friend.name);
+    friendsList.push(...getFriends(friend));
+  }
+  return friendsList;
+}
+
+console.log(getFriends(myself)); // ["mary", "clare", "loki", "xavi", "amy", "penny", "berne"]
+```
