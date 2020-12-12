@@ -59,4 +59,6 @@ console.log(prodDescription`This ${n} is ${p}`); // This book is not expensive
 console.log(prodDescription`This ${n} is ${p2}`); // This book is expensive
 ```
 
+#### Regular expression
 
+[MDN - Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
