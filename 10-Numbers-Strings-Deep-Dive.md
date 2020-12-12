@@ -47,16 +47,16 @@ Simple example:
 ```
 const prodDescription = (strings, name, price) => {
   console.log(strings); // ["the ", " should be ", "", raw: Array(3)]
-  const expensive = price > 50 ? 'expensive' : 'not expensive';
-  return `This ${name} is ${expensive}`;
+  const priceCategory = price > 50 ? 'expensive' : 'not expensive';
+  return `${strings[0]}${name}${strings[1]}${priceCategory}`;
 }
 
 const n = 'book';
 const p = 30;
 const p2 = 60;
 
-console.log(prodDescription`the ${n} should be ${p}`); // This book is not expensive
-console.log(prodDescription`the ${n} should be ${p2}`); // This book is expensive
+console.log(prodDescription`This ${n} is ${p}`); // This book is not expensive
+console.log(prodDescription`This ${n} is ${p2}`); // This book is expensive
 ```
 
 
