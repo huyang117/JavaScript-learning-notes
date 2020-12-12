@@ -24,3 +24,39 @@ console.log(0.2 + 0.4 === 0.6); // false
 [Article about the rounding errors and why they occur](https://modernweb.com/what-every-javascript-developer-should-know-about-floating-points/)
 
 [MDN - Numbers and dates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates)
+
+To put it simply, there are certain fractions where there is no perfect solution in the binary system 
+```
+console.log(0.2.toString(2)); // "0.001100110011001100110011001100110011001100110011001101" 
+```
+
+#### The `BigInt` type
+
+Perfect type for working with big integers.
+
+[MDN- BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+
+
+### Strings in JavaScript
+
+#### Tagged templates
+
+[MDN - Tagged templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates)
+
+Simple example:
+```
+const prodDescription = (strings, name, price) => {
+  console.log(strings); // ["the ", " should be ", "", raw: Array(3)]
+  const expensive = price > 50 ? 'expensive' : 'not expensive';
+  return `This ${name} is ${expensive}`;
+}
+
+const n = 'book';
+const p = 30;
+const p2 = 60;
+
+console.log(prodDescription`the ${n} should be ${p}`); // This book is not expensive
+console.log(prodDescription`the ${n} should be ${p2}`); // This book is expensive
+```
+
+
