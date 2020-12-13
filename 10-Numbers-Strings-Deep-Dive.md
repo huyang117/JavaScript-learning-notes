@@ -62,3 +62,5 @@ console.log(prodDescription`This ${n} is ${p2}`); // This book is expensive
 #### Regular expression
 
 [MDN - Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+[Youtube Series - Regular Expressions Demystified](https://www.youtube.com/watch?v=0LKdKixl5Ug&list=PL55RiY5tL51ryV3MhCbH8bLl7O_RZGUUE&ab_channel=Academind)
