@@ -9,3 +9,14 @@
 [MDN - Concurrency and the event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 
 [Medium article - JavaScript Event Loop Explained](https://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4)
+
+### Promise
+
+[MDN - Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+Wrap the `setTimeout` API with promise logic:
+```
+const delay = time => new Promise(resolve => setTimeout(resolve, time));
+
+// delay(2000).then(() => {  }); // add more code in the curly bracket
+```
