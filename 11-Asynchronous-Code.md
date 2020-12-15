@@ -14,6 +14,8 @@
 
 [MDN - Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
+[Chrome Dev - JavaScript Promises: An introduction](https://web.dev/promises/)
+
 #### Wrap the `setTimeout` API with promise logic:
 ```
 const delay = time => new Promise(resolve => setTimeout(resolve, time));
