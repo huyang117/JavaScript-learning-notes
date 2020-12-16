@@ -58,4 +58,45 @@ Use `JSON.parse()` to convert JSON data to JavaScript object:
 const parsedData = JSON.parse(jsonData); // yields a "raw" JS object/ array etc.
 ```
 
+### Http requests
+
+#### XMLHttpRequest
+
+[MDN - Using XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
+
+Example: 
+```
+// input parameters are method (GET/POST/DELETE etc.), url(API endpoint), data(body for POST request)
+
+const sendHttpReq = (method, url, data) =>
+  new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open(method, url);
+
+    xhr.responseType = "json";
+
+    // error handling for complete request-response cycle
+    // request is successfully sent to the server 
+    // but with error indicated in the response
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject(new Error('Something went wrong'));
+      }
+    };
+
+    // error handling for imcomplete request-response cycle
+    xhr.onerror = () => {
+      reject(new Error('Failed to send request'));
+    }
+
+    xhr.send(JSON.stringify(data));
+  });
+```
+
+#### Fetch API
+
+[MDN - Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
