@@ -36,3 +36,21 @@ localStorage.setItem("user", JSON.stringify(user));
 
 - sessionStorage lives as long as the page is open in the browser; reloading will not cause it to disappear; if that tab or the entire browser is closed, sessionStorage is cleared
 - localStorage will not be cleared when the tab or the browser is closed. localStorage will only be cleared when the user manually clears it or the browser clears it because it is running out of space 
+
+### Cookie
+
+[MDN - Cookie](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+
+Example of writing a new cookie:
+```
+document.cookie = `uid=${userId}; max-age=5`; 
+// 'max-age=5' is part of config; it menas expire after 5 seconds; it is not included in the cookie data content
+```
+
+There is no API for parsing cookie data, so it can be a bit more clunky to handle than localStorage and sessionStorage.
+
+### IndexedDB
+
+[MDN - IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+
+[idb.js - work with IndexedDB](https://github.com/jakearchibald/idb)
