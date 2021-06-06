@@ -163,7 +163,7 @@ class Human extends Species {
 const human = new Human();
 console.log(human);
 ``` 
-The `printAge()` appears under `Human.prototype` (in other words, `printAge()` is not part of object itself); and `printSpecies()` appears under `Species.prototype`.
+The `printAge()` appears under `human.__proto__` (in other words, `printAge()` is not part of object itself).
 
 By adding method to a prototype, JavaScript makes it that all the `Human` object we create share the same prototype object. For example, we can add these code and the comparison will yield `true`. (For methods defined in this way, `bind` is needed sometimes to specify what `this` keyword points at.)
 ```
