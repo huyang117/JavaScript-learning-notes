@@ -79,7 +79,7 @@ console.dir(book);
 
 To summarize the difference between `someObj.__proto__` vs `SomeFunction.prototype`:
 
-`__prototype` points at the prototype object of `someObj`; `prototype` points at the prototype object that will be assigned as prototype to objects created based on `SomeFunction`.
+`__proto__` points at the prototype object of `someObj`; `prototype` points at the prototype object that will be assigned as prototype to objects created based on `SomeFunction`.
 
 #### Side note about static method
 In the example used in "`__proto__` and `prototype` (both are property)" section, `Person.prototype.printAge` defines a method available to every instance created based on `Person` constructor function. In constrast, `Person.[function_name]` defines function that is only available to the constructor function object itself.
